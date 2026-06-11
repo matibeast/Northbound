@@ -1,13 +1,13 @@
 /**
  * Semantic tokens
- * Source: Semantic.tokens.json (Figma "Semantic" mode)
- *          Semantic Dark.tokens.json (Figma "Semantic Dark" mode)
+ * Source: Semantic_tokens_json (Figma "Semantic" mode)
+ *          Semantic_Dark_tokens.json (Figma "Semantic Dark" mode)
  *
  * Contextual tokens that alias the primitive layer (./primitives.css).
  * Components should reference these, never the primitives directly.
  *
  * :root holds the light (default) theme. The .dark class overrides the
- * same token names with dark-mode primitive mappings — add `.dark` to
+ * same token names with dark-mode primitive mappings add `.dark` to
  * <html> or any ancestor to activate it.
  */
 

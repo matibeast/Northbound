@@ -17,7 +17,7 @@ tokens/
   semantics.dark.json    Same roles, dark values. The theme switch lives entirely in this layer.
 ```
 
-Tokens follow the W3C DTCG format and sync between this repo and Figma through Token Studio, so design and code consume the same source of truth.
+tokens are authored in Token Studio and versioned in this repo as the single source of truth.
 
 ## Status
 
