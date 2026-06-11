@@ -1,0 +1,131 @@
+/**
+ * Primitive tokens
+ * Source: Primitives.tokens.json (Figma "Primitives" mode)
+ *
+ * Raw, context-free design values. These are the foundation for the
+ * semantic layer (e.g. styles/tokens/semantics.css) and should not be
+ * referenced directly in components.
+ */
+
+:root {
+  /* Color / Gray */
+  --color-gray-50: #F0F1F6;
+  --color-gray-100: #CFD5E2;
+  --color-gray-200: #B0B9CF;
+  --color-gray-300: #8F9AB7;
+  --color-gray-400: #6F7B9B;
+  --color-gray-500: #566280;
+  --color-gray-600: #424C67;
+  --color-gray-700: #2F374C;
+  --color-gray-800: #1A202D;
+  --color-gray-900: #0E121B;
+
+  /* Color / Gold */
+  --color-gold-50: #FEFBEB;
+  --color-gold-100: #FEF0B9;
+  --color-gold-500: #FCD435;
+  --color-gold-600: #E4AE0C;
+  --color-gold-700: #BA8508;
+  --color-gold-900: #744C06;
+
+  /* Color / Blue */
+  --color-blue-100: #D6F0FF;
+  --color-blue-300: #85D2FF;
+  --color-blue-500: #2CB1FF;
+  --color-blue-700: #0F71B3;
+  --color-blue-900: #0A385C;
+
+  /* Color / Red */
+  --color-red-100: #F7E3E6;
+  --color-red-300: #DE96A0;
+  --color-red-500: #C34959;
+  --color-red-700: #922A38;
+  --color-red-900: #56151E;
+
+  /* Color / Orange */
+  --color-orange-100: #FEE9D7;
+  --color-orange-300: #FBB97E;
+  --color-orange-500: #F8821B;
+  --color-orange-700: #AE5109;
+  --color-orange-900: #692E07;
+
+  /* Color / Green */
+  --color-green-100: #E7F5E0;
+  --color-green-300: #A7D590;
+  --color-green-500: #59A136;
+  --color-green-700: #386A1B;
+  --color-green-900: #163300;
+
+  /* Font / Family */
+  --font-family-sans: Inter;
+  --font-family-mono: SFMono-Regular;
+
+  /* Font / Weight */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Font / Size */
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 26px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 40px;
+  --font-size-5xl: 64px;
+  --font-size-6xl: 96px;
+
+  /* Font / Line Height */
+  --font-lineheight-sm: 20px;
+  --font-lineheight-base: 22px;
+  --font-lineheight-lg: 24px;
+  --font-lineheight-xl: 28px;
+  --font-lineheight-2xl: 32px;
+  --font-lineheight-3xl: 34px;
+
+  /* Spacing */
+  --spacing-0: 0px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+
+  /* Border Radius */
+  --borderradius-none: 0px;
+  --borderradius-sm: 4px;
+  --borderradius-base: 8px;
+  --borderradius-lg: 12px;
+  --borderradius-xl: 16px;
+  --borderradius-2xl: 24px;
+  --borderradius-full: 999px;
+
+  /* Border Width */
+  --borderwidth-0: 0px;
+  --borderwidth-1: 1px;
+  --borderwidth-2: 2px;
+  --borderwidth-4: 4px;
+
+  /* Opacity (0-1, mapped from Figma's 0-100 scale) */
+  --opacity-0: 0;
+  --opacity-25: 0.25;
+  --opacity-50: 0.5;
+  --opacity-75: 0.75;
+  --opacity-100: 1;
+
+  /* Sizing */
+  --sizing-4: 16px;
+  --sizing-5: 20px;
+  --sizing-6: 24px;
+  --sizing-8: 32px;
+  --sizing-10: 40px;
+  --sizing-12: 48px;
+  --sizing-16: 64px;
+}
