@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "../../styles/tokens/semantics.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
@@ -8,8 +11,225 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Color / Background / Neutral */
+  --color-background-neutral-subtlest-default: var(--color-background-neutral-subtlest-default);
+  --color-background-neutral-subtlest-hovered: var(--color-background-neutral-subtlest-hovered);
+  --color-background-neutral-subtlest-pressed: var(--color-background-neutral-subtlest-pressed);
+  --color-background-neutral-subtlest-disabled: var(--color-background-neutral-subtlest-disabled);
+  --color-background-neutral-subtle-default: var(--color-background-neutral-subtle-default);
+  --color-background-neutral-subtle-hovered: var(--color-background-neutral-subtle-hovered);
+  --color-background-neutral-subtle-pressed: var(--color-background-neutral-subtle-pressed);
+  --color-background-neutral-subtle-disabled: var(--color-background-neutral-subtle-disabled);
+  --color-background-neutral-bold-default: var(--color-background-neutral-bold-default);
+  --color-background-neutral-bold-hovered: var(--color-background-neutral-bold-hovered);
+  --color-background-neutral-bold-pressed: var(--color-background-neutral-bold-pressed);
+  --color-background-neutral-bold-disabled: var(--color-background-neutral-bold-disabled);
+  /* Color / Background / Brand */
+  --color-background-brand-subtle-default: var(--color-background-brand-subtle-default);
+  --color-background-brand-subtle-hovered: var(--color-background-brand-subtle-hovered);
+  --color-background-brand-subtle-pressed: var(--color-background-brand-subtle-pressed);
+  --color-background-brand-subtle-disabled: var(--color-background-brand-subtle-disabled);
+  --color-background-brand-bold-default: var(--color-background-brand-bold-default);
+  --color-background-brand-bold-hovered: var(--color-background-brand-bold-hovered);
+  --color-background-brand-bold-pressed: var(--color-background-brand-bold-pressed);
+  --color-background-brand-bold-disabled: var(--color-background-brand-bold-disabled);
+  /* Color / Background / Info */
+  --color-background-info-subtle-default: var(--color-background-info-subtle-default);
+  --color-background-info-subtle-hovered: var(--color-background-info-subtle-hovered);
+  --color-background-info-subtle-pressed: var(--color-background-info-subtle-pressed);
+  --color-background-info-subtle-disabled: var(--color-background-info-subtle-disabled);
+  --color-background-info-bold-default: var(--color-background-info-bold-default);
+  --color-background-info-bold-hovered: var(--color-background-info-bold-hovered);
+  --color-background-info-bold-pressed: var(--color-background-info-bold-pressed);
+  --color-background-info-bold-disabled: var(--color-background-info-bold-disabled);
+  /* Color / Background / Danger */
+  --color-background-danger-subtle-default: var(--color-background-danger-subtle-default);
+  --color-background-danger-subtle-hovered: var(--color-background-danger-subtle-hovered);
+  --color-background-danger-subtle-pressed: var(--color-background-danger-subtle-pressed);
+  --color-background-danger-subtle-disabled: var(--color-background-danger-subtle-disabled);
+  --color-background-danger-bold-default: var(--color-background-danger-bold-default);
+  --color-background-danger-bold-hovered: var(--color-background-danger-bold-hovered);
+  --color-background-danger-bold-pressed: var(--color-background-danger-bold-pressed);
+  --color-background-danger-bold-disabled: var(--color-background-danger-bold-disabled);
+  /* Color / Background / Warning */
+  --color-background-warning-subtle-default: var(--color-background-warning-subtle-default);
+  --color-background-warning-subtle-hovered: var(--color-background-warning-subtle-hovered);
+  --color-background-warning-subtle-pressed: var(--color-background-warning-subtle-pressed);
+  --color-background-warning-subtle-disabled: var(--color-background-warning-subtle-disabled);
+  --color-background-warning-bold-default: var(--color-background-warning-bold-default);
+  --color-background-warning-bold-hovered: var(--color-background-warning-bold-hovered);
+  --color-background-warning-bold-pressed: var(--color-background-warning-bold-pressed);
+  --color-background-warning-bold-disabled: var(--color-background-warning-bold-disabled);
+  /* Color / Background / Success */
+  --color-background-success-subtle-default: var(--color-background-success-subtle-default);
+  --color-background-success-subtle-hovered: var(--color-background-success-subtle-hovered);
+  --color-background-success-subtle-pressed: var(--color-background-success-subtle-pressed);
+  --color-background-success-subtle-disabled: var(--color-background-success-subtle-disabled);
+  --color-background-success-bold-default: var(--color-background-success-bold-default);
+  --color-background-success-bold-hovered: var(--color-background-success-bold-hovered);
+  --color-background-success-bold-pressed: var(--color-background-success-bold-pressed);
+  --color-background-success-bold-disabled: var(--color-background-success-bold-disabled);
+  /* Color / Text / Neutral */
+  --color-text-neutral-subtlest-default: var(--color-text-neutral-subtlest-default);
+  --color-text-neutral-subtlest-hovered: var(--color-text-neutral-subtlest-hovered);
+  --color-text-neutral-subtlest-pressed: var(--color-text-neutral-subtlest-pressed);
+  --color-text-neutral-subtlest-disabled: var(--color-text-neutral-subtlest-disabled);
+  --color-text-neutral-subtle-default: var(--color-text-neutral-subtle-default);
+  --color-text-neutral-subtle-hovered: var(--color-text-neutral-subtle-hovered);
+  --color-text-neutral-subtle-pressed: var(--color-text-neutral-subtle-pressed);
+  --color-text-neutral-subtle-disabled: var(--color-text-neutral-subtle-disabled);
+  --color-text-neutral-bold-default: var(--color-text-neutral-bold-default);
+  --color-text-neutral-bold-hovered: var(--color-text-neutral-bold-hovered);
+  --color-text-neutral-bold-pressed: var(--color-text-neutral-bold-pressed);
+  --color-text-neutral-bold-disabled: var(--color-text-neutral-bold-disabled);
+  /* Color / Text / Brand */
+  --color-text-brand-bold-default: var(--color-text-brand-bold-default);
+  --color-text-brand-bold-hovered: var(--color-text-brand-bold-hovered);
+  --color-text-brand-bold-pressed: var(--color-text-brand-bold-pressed);
+  --color-text-brand-bold-disabled: var(--color-text-brand-bold-disabled);
+  /* Color / Text / Info */
+  --color-text-info-bold-default: var(--color-text-info-bold-default);
+  --color-text-info-bold-hovered: var(--color-text-info-bold-hovered);
+  --color-text-info-bold-pressed: var(--color-text-info-bold-pressed);
+  --color-text-info-bold-disabled: var(--color-text-info-bold-disabled);
+  /* Color / Text / Danger */
+  --color-text-danger-bold-default: var(--color-text-danger-bold-default);
+  --color-text-danger-bold-hovered: var(--color-text-danger-bold-hovered);
+  --color-text-danger-bold-pressed: var(--color-text-danger-bold-pressed);
+  --color-text-danger-bold-disabled: var(--color-text-danger-bold-disabled);
+  /* Color / Text / Warning */
+  --color-text-warning-bold-default: var(--color-text-warning-bold-default);
+  --color-text-warning-bold-hovered: var(--color-text-warning-bold-hovered);
+  --color-text-warning-bold-pressed: var(--color-text-warning-bold-pressed);
+  --color-text-warning-bold-disabled: var(--color-text-warning-bold-disabled);
+  /* Color / Text / Success */
+  --color-text-success-bold-default: var(--color-text-success-bold-default);
+  --color-text-success-bold-hovered: var(--color-text-success-bold-hovered);
+  --color-text-success-bold-pressed: var(--color-text-success-bold-pressed);
+  --color-text-success-bold-disabled: var(--color-text-success-bold-disabled);
+  /* Color / Border / Neutral */
+  --color-border-neutral-subtle-default: var(--color-border-neutral-subtle-default);
+  --color-border-neutral-subtle-hovered: var(--color-border-neutral-subtle-hovered);
+  --color-border-neutral-subtle-pressed: var(--color-border-neutral-subtle-pressed);
+  --color-border-neutral-subtle-disabled: var(--color-border-neutral-subtle-disabled);
+  --color-border-neutral-bold-default: var(--color-border-neutral-bold-default);
+  --color-border-neutral-bold-hovered: var(--color-border-neutral-bold-hovered);
+  --color-border-neutral-bold-pressed: var(--color-border-neutral-bold-pressed);
+  --color-border-neutral-bold-disabled: var(--color-border-neutral-bold-disabled);
+  /* Color / Border / Brand */
+  --color-border-brand-bold-default: var(--color-border-brand-bold-default);
+  --color-border-brand-bold-hovered: var(--color-border-brand-bold-hovered);
+  --color-border-brand-bold-pressed: var(--color-border-brand-bold-pressed);
+  --color-border-brand-bold-disabled: var(--color-border-brand-bold-disabled);
+  /* Color / Border / Info */
+  --color-border-info-subtle-default: var(--color-border-info-subtle-default);
+  --color-border-info-subtle-hovered: var(--color-border-info-subtle-hovered);
+  --color-border-info-subtle-pressed: var(--color-border-info-subtle-pressed);
+  --color-border-info-subtle-disabled: var(--color-border-info-subtle-disabled);
+  --color-border-info-bold-default: var(--color-border-info-bold-default);
+  --color-border-info-bold-hovered: var(--color-border-info-bold-hovered);
+  --color-border-info-bold-pressed: var(--color-border-info-bold-pressed);
+  --color-border-info-bold-disabled: var(--color-border-info-bold-disabled);
+  /* Color / Border / Danger */
+  --color-border-danger-subtle-default: var(--color-border-danger-subtle-default);
+  --color-border-danger-subtle-hovered: var(--color-border-danger-subtle-hovered);
+  --color-border-danger-subtle-pressed: var(--color-border-danger-subtle-pressed);
+  --color-border-danger-subtle-disabled: var(--color-border-danger-subtle-disabled);
+  --color-border-danger-bold-default: var(--color-border-danger-bold-default);
+  --color-border-danger-bold-hovered: var(--color-border-danger-bold-hovered);
+  --color-border-danger-bold-pressed: var(--color-border-danger-bold-pressed);
+  --color-border-danger-bold-disabled: var(--color-border-danger-bold-disabled);
+  /* Color / Border / Warning */
+  --color-border-warning-subtle-default: var(--color-border-warning-subtle-default);
+  --color-border-warning-subtle-hovered: var(--color-border-warning-subtle-hovered);
+  --color-border-warning-subtle-pressed: var(--color-border-warning-subtle-pressed);
+  --color-border-warning-subtle-disabled: var(--color-border-warning-subtle-disabled);
+  --color-border-warning-bold-default: var(--color-border-warning-bold-default);
+  --color-border-warning-bold-hovered: var(--color-border-warning-bold-hovered);
+  --color-border-warning-bold-pressed: var(--color-border-warning-bold-pressed);
+  --color-border-warning-bold-disabled: var(--color-border-warning-bold-disabled);
+  /* Color / Border / Success */
+  --color-border-success-subtle-default: var(--color-border-success-subtle-default);
+  --color-border-success-subtle-hovered: var(--color-border-success-subtle-hovered);
+  --color-border-success-subtle-pressed: var(--color-border-success-subtle-pressed);
+  --color-border-success-subtle-disabled: var(--color-border-success-subtle-disabled);
+  --color-border-success-bold-default: var(--color-border-success-bold-default);
+  --color-border-success-bold-hovered: var(--color-border-success-bold-hovered);
+  --color-border-success-bold-pressed: var(--color-border-success-bold-pressed);
+  --color-border-success-bold-disabled: var(--color-border-success-bold-disabled);
+  /* Color / Icon / Neutral */
+  --color-icon-neutral-subtle-default: var(--color-icon-neutral-subtle-default);
+  --color-icon-neutral-subtle-hovered: var(--color-icon-neutral-subtle-hovered);
+  --color-icon-neutral-subtle-pressed: var(--color-icon-neutral-subtle-pressed);
+  --color-icon-neutral-subtle-disabled: var(--color-icon-neutral-subtle-disabled);
+  --color-icon-neutral-bold-default: var(--color-icon-neutral-bold-default);
+  --color-icon-neutral-bold-hovered: var(--color-icon-neutral-bold-hovered);
+  --color-icon-neutral-bold-pressed: var(--color-icon-neutral-bold-pressed);
+  --color-icon-neutral-bold-disabled: var(--color-icon-neutral-bold-disabled);
+  /* Color / Icon / Brand */
+  --color-icon-brand-bold-default: var(--color-icon-brand-bold-default);
+  --color-icon-brand-bold-hovered: var(--color-icon-brand-bold-hovered);
+  --color-icon-brand-bold-pressed: var(--color-icon-brand-bold-pressed);
+  --color-icon-brand-bold-disabled: var(--color-icon-brand-bold-disabled);
+  /* Color / Icon / Info */
+  --color-icon-info-bold-default: var(--color-icon-info-bold-default);
+  --color-icon-info-bold-hovered: var(--color-icon-info-bold-hovered);
+  --color-icon-info-bold-pressed: var(--color-icon-info-bold-pressed);
+  --color-icon-info-bold-disabled: var(--color-icon-info-bold-disabled);
+  /* Color / Icon / Danger */
+  --color-icon-danger-bold-default: var(--color-icon-danger-bold-default);
+  --color-icon-danger-bold-hovered: var(--color-icon-danger-bold-hovered);
+  --color-icon-danger-bold-pressed: var(--color-icon-danger-bold-pressed);
+  --color-icon-danger-bold-disabled: var(--color-icon-danger-bold-disabled);
+  /* Color / Icon / Warning */
+  --color-icon-warning-bold-default: var(--color-icon-warning-bold-default);
+  --color-icon-warning-bold-hovered: var(--color-icon-warning-bold-hovered);
+  --color-icon-warning-bold-pressed: var(--color-icon-warning-bold-pressed);
+  --color-icon-warning-bold-disabled: var(--color-icon-warning-bold-disabled);
+  /* Color / Icon / Success */
+  --color-icon-success-bold-default: var(--color-icon-success-bold-default);
+  --color-icon-success-bold-hovered: var(--color-icon-success-bold-hovered);
+  --color-icon-success-bold-pressed: var(--color-icon-success-bold-pressed);
+  --color-icon-success-bold-disabled: var(--color-icon-success-bold-disabled);
+}
+
+@theme {
+  /* Font / Family */
+  --font-sans: Inter, ui-sans-serif, system-ui;
+  --font-mono: SFMono-Regular, ui-monospace, monospace;
+
+  /* Font / Weight */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Font / Size */
+  --text-sm: 14px;
+  --text-sm--line-height: 20px;
+  --text-base: 16px;
+  --text-base--line-height: 22px;
+  --text-lg: 18px;
+  --text-lg--line-height: 24px;
+  --text-xl: 22px;
+  --text-xl--line-height: 28px;
+  --text-2xl: 26px;
+  --text-2xl--line-height: 32px;
+  --text-3xl: 30px;
+  --text-3xl--line-height: 34px;
+  --text-4xl: 40px;
+  --text-5xl: 64px;
+  --text-6xl: 96px;
+
+  /* Border Radius */
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-base: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 999px;
 }
 
 @media (prefers-color-scheme: dark) {
