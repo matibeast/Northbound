@@ -23,7 +23,7 @@ tokens are authored in Token Studio and versioned in this repo as the single sou
 
 - [x] Primitive tokens
 - [x] Semantic layer, light and dark
-- [x] Tokens wired to code (CSS variables + Tailwind config)
+- [ ] Tokens wired to code (CSS variables + Tailwind config)
 - [ ] Core components (shadcn/ui restyled through the token layer)
 - [ ] 3 screens: Portfolio Dashboard, Asset Detail, Deposit & FX Conversion
 - [ ] Storybook
