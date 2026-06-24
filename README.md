@@ -13,11 +13,34 @@ AI design and code tools are only as good as the system they consume. This repo 
 ```
 tokens/
   primitives.json        Raw scales: color, type, space, radius. No theme logic.
-  semantics.light.json   Role-based tokens (surface, text, border, interactive, feedback). Light values.
+  semantics.light.json   Role-based tokens (background, text, border, icon). Light values.
   semantics.dark.json    Same roles, dark values. The theme switch lives entirely in this layer.
 ```
 
-tokens are authored in Token Studio and versioned in this repo as the single source of truth.
+Tokens are authored in Token Studio and versioned in this repo as the single source of truth.
+
+### The naming grammar
+
+The naming is the actual system, not the colors. Every semantic token follows one predictable pattern:
+
+```
+--color-{category}-{purpose}-{emphasis}-{state}
+```
+
+- **category** (4): background, text, border, icon
+- **purpose** (6): neutral, brand, info, danger, warning, success
+- **emphasis** (3): subtlest, subtle, bold
+- **state** (4): default, hovered, pressed, disabled
+
+This is what scales the system from 3 screens to a full product without renaming anything.
+
+### Traceability
+
+Tokens keep their semantic-to-primitive references intact, so the chain is inspectable end to end. Open `semantics.light.json` and you see `{color.gold.500}`, not a baked hex value. The reference chain is the architecture, and it survives into the generated CSS as a `var()` chain.
+
+### Accessibility
+
+WCAG pairings are designed into the token decisions, not checked afterward. The brand anchor, `gold.500` on `gray.900`, lands at 13:1 contrast (AAA).
 
 ## Status
 
