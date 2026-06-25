@@ -41,15 +41,54 @@ Tokens keep their semantic-to-primitive references intact, so the chain is inspe
 
 WCAG pairings are designed into the token decisions, not checked afterward. The brand anchor, `gold.500` on `gray.900`, lands at 13:1 contrast (AAA).
 
+## Components
+
+Components are organized into four layers. Each layer can only depend on layers below it.
+
+### Foundation
+
+Atomic, single-responsibility primitives. No dependencies on other design system components.
+
+- [x] Icon — Central barrel export for Heroicons and Lucide icons
+- [x] Avatar — User avatar — initials or image variant, two sizes
+- [x] Button — Primary interaction component — primary, secondary, destructive variants
+- [x] Input — Form input — lg/md/sm sizes, prefix/suffix slots, error state
+- [x] Divider — Horizontal or vertical separator
+- [x] Chip — Filter/selection chip with selected and disabled states
+- [x] Badge — Status/change indicator — pairs an icon with a numeric value and caption
+- [x] Icon Tile — Semantic container wrapping an arbitrary icon — neutral, brand, info, warning, success, negative variants
+- [x] Sparkline — Financial chart visualization — brand, positive, and negative variants with left/right direction
+
+### Composite
+
+Assembled from one or more Foundation components.
+
+- [ ] No composite components yet
+
+### Feature
+
+Domain-specific components tied to the investing product.
+
+- [ ] No feature components yet
+
+### Layout
+
+- [ ] No layout components yet
+
+---
+
 ## Status
 
 - [x] Primitive tokens
 - [x] Semantic layer, light and dark
 - [x] Tokens wired to code (CSS variables mapped to Tailwind v4 via `@theme {}`)
-- [ ] Core components (shadcn/ui restyled through the token layer) — Button, Card, Input installed and wired to tokens; more to come
+- [x] Foundation components — Icon, Avatar, Button, Input, Divider, Chip, Badge, Icon Tile, Sparkline
+- [ ] Composite components
+- [ ] Feature components
+- [x] Storybook wired up with stories for all components
+- [ ] Layout components
 - [ ] 3 screens: Portfolio Dashboard, Asset Detail, Deposit & FX Conversion
-- [ ] Storybook
-- [ ] Deployed app
+
 
 ## Stack
 
