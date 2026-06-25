@@ -1,0 +1,315 @@
+@import "tailwindcss";
+@import "../styles/tokens/semantics.css";
+
+@theme {
+  /* --- Backgrounds --- */
+  --color-bg-neutral-subtlest:          var(--color-background-neutral-subtlest-default);
+  --color-bg-neutral-subtlest-hovered:  var(--color-background-neutral-subtlest-hovered);
+  --color-bg-neutral-subtlest-pressed:  var(--color-background-neutral-subtlest-pressed);
+  --color-bg-neutral-subtlest-disabled: var(--color-background-neutral-subtlest-disabled);
+
+  --color-bg-neutral-subtle:            var(--color-background-neutral-subtle-default);
+  --color-bg-neutral-subtle-hovered:    var(--color-background-neutral-subtle-hovered);
+  --color-bg-neutral-subtle-pressed:    var(--color-background-neutral-subtle-pressed);
+  --color-bg-neutral-subtle-disabled:   var(--color-background-neutral-subtle-disabled);
+
+  --color-bg-neutral-bold:              var(--color-background-neutral-bold-default);
+  --color-bg-neutral-bold-hovered:      var(--color-background-neutral-bold-hovered);
+  --color-bg-neutral-bold-pressed:      var(--color-background-neutral-bold-pressed);
+  --color-bg-neutral-bold-disabled:     var(--color-background-neutral-bold-disabled);
+
+  --color-bg-brand-subtle:              var(--color-background-brand-subtle-default);
+  --color-bg-brand-subtle-hovered:      var(--color-background-brand-subtle-hovered);
+  --color-bg-brand-subtle-pressed:      var(--color-background-brand-subtle-pressed);
+  --color-bg-brand-subtle-disabled:     var(--color-background-brand-subtle-disabled);
+
+  --color-bg-brand-bold:                var(--color-background-brand-bold-default);
+  --color-bg-brand-bold-hovered:        var(--color-background-brand-bold-hovered);
+  --color-bg-brand-bold-pressed:        var(--color-background-brand-bold-pressed);
+  --color-bg-brand-bold-disabled:       var(--color-background-brand-bold-disabled);
+
+  --color-bg-info-subtle:               var(--color-background-info-subtle-default);
+  --color-bg-info-subtle-hovered:       var(--color-background-info-subtle-hovered);
+  --color-bg-info-subtle-pressed:       var(--color-background-info-subtle-pressed);
+  --color-bg-info-subtle-disabled:      var(--color-background-info-subtle-disabled);
+
+  --color-bg-info-bold:                 var(--color-background-info-bold-default);
+  --color-bg-info-bold-hovered:         var(--color-background-info-bold-hovered);
+  --color-bg-info-bold-pressed:         var(--color-background-info-bold-pressed);
+  --color-bg-info-bold-disabled:        var(--color-background-info-bold-disabled);
+
+  --color-bg-danger-subtle:             var(--color-background-danger-subtle-default);
+  --color-bg-danger-subtle-hovered:     var(--color-background-danger-subtle-hovered);
+  --color-bg-danger-subtle-pressed:     var(--color-background-danger-subtle-pressed);
+  --color-bg-danger-subtle-disabled:    var(--color-background-danger-subtle-disabled);
+
+  --color-bg-danger-bold:               var(--color-background-danger-bold-default);
+  --color-bg-danger-bold-hovered:       var(--color-background-danger-bold-hovered);
+  --color-bg-danger-bold-pressed:       var(--color-background-danger-bold-pressed);
+  --color-bg-danger-bold-disabled:      var(--color-background-danger-bold-disabled);
+
+  --color-bg-warning-subtle:            var(--color-background-warning-subtle-default);
+  --color-bg-warning-subtle-hovered:    var(--color-background-warning-subtle-hovered);
+  --color-bg-warning-subtle-pressed:    var(--color-background-warning-subtle-pressed);
+  --color-bg-warning-subtle-disabled:   var(--color-background-warning-subtle-disabled);
+
+  --color-bg-warning-bold:              var(--color-background-warning-bold-default);
+  --color-bg-warning-bold-hovered:      var(--color-background-warning-bold-hovered);
+  --color-bg-warning-bold-pressed:      var(--color-background-warning-bold-pressed);
+  --color-bg-warning-bold-disabled:     var(--color-background-warning-bold-disabled);
+
+  --color-bg-success-subtle:            var(--color-background-success-subtle-default);
+  --color-bg-success-subtle-hovered:    var(--color-background-success-subtle-hovered);
+  --color-bg-success-subtle-pressed:    var(--color-background-success-subtle-pressed);
+  --color-bg-success-subtle-disabled:   var(--color-background-success-subtle-disabled);
+
+  --color-bg-success-bold:              var(--color-background-success-bold-default);
+  --color-bg-success-bold-hovered:      var(--color-background-success-bold-hovered);
+  --color-bg-success-bold-pressed:      var(--color-background-success-bold-pressed);
+  --color-bg-success-bold-disabled:     var(--color-background-success-bold-disabled);
+
+  /* --- Text --- */
+  --color-text-neutral-subtlest:          var(--color-text-neutral-subtlest-default);
+  --color-text-neutral-subtlest-hovered:  var(--color-text-neutral-subtlest-hovered);
+  --color-text-neutral-subtlest-pressed:  var(--color-text-neutral-subtlest-pressed);
+  --color-text-neutral-subtlest-disabled: var(--color-text-neutral-subtlest-disabled);
+
+  --color-text-neutral-subtle:            var(--color-text-neutral-subtle-default);
+  --color-text-neutral-subtle-hovered:    var(--color-text-neutral-subtle-hovered);
+  --color-text-neutral-subtle-pressed:    var(--color-text-neutral-subtle-pressed);
+  --color-text-neutral-subtle-disabled:   var(--color-text-neutral-subtle-disabled);
+
+  --color-text-neutral-bold:              var(--color-text-neutral-bold-default);
+  --color-text-neutral-bold-hovered:      var(--color-text-neutral-bold-hovered);
+  --color-text-neutral-bold-pressed:      var(--color-text-neutral-bold-pressed);
+  --color-text-neutral-bold-disabled:     var(--color-text-neutral-bold-disabled);
+
+  --color-text-brand-bold:                var(--color-text-brand-bold-default);
+  --color-text-brand-bold-hovered:        var(--color-text-brand-bold-hovered);
+  --color-text-brand-bold-pressed:        var(--color-text-brand-bold-pressed);
+  --color-text-brand-bold-disabled:       var(--color-text-brand-bold-disabled);
+
+  --color-text-info-bold:                 var(--color-text-info-bold-default);
+  --color-text-info-bold-hovered:         var(--color-text-info-bold-hovered);
+  --color-text-info-bold-pressed:         var(--color-text-info-bold-pressed);
+  --color-text-info-bold-disabled:        var(--color-text-info-bold-disabled);
+
+  --color-text-danger-bold:               var(--color-text-danger-bold-default);
+  --color-text-danger-bold-hovered:       var(--color-text-danger-bold-hovered);
+  --color-text-danger-bold-pressed:       var(--color-text-danger-bold-pressed);
+  --color-text-danger-bold-disabled:      var(--color-text-danger-bold-disabled);
+
+  --color-text-warning-bold:              var(--color-text-warning-bold-default);
+  --color-text-warning-bold-hovered:      var(--color-text-warning-bold-hovered);
+  --color-text-warning-bold-pressed:      var(--color-text-warning-bold-pressed);
+  --color-text-warning-bold-disabled:     var(--color-text-warning-bold-disabled);
+
+  --color-text-success-bold:              var(--color-text-success-bold-default);
+  --color-text-success-bold-hovered:      var(--color-text-success-bold-hovered);
+  --color-text-success-bold-pressed:      var(--color-text-success-bold-pressed);
+  --color-text-success-bold-disabled:     var(--color-text-success-bold-disabled);
+
+  /* --- Borders --- */
+  --color-border-neutral-subtle:            var(--color-border-neutral-subtle-default);
+  --color-border-neutral-subtle-hovered:    var(--color-border-neutral-subtle-hovered);
+  --color-border-neutral-subtle-pressed:    var(--color-border-neutral-subtle-pressed);
+  --color-border-neutral-subtle-disabled:   var(--color-border-neutral-subtle-disabled);
+
+  --color-border-neutral-bold:              var(--color-border-neutral-bold-default);
+  --color-border-neutral-bold-hovered:      var(--color-border-neutral-bold-hovered);
+  --color-border-neutral-bold-pressed:      var(--color-border-neutral-bold-pressed);
+  --color-border-neutral-bold-disabled:     var(--color-border-neutral-bold-disabled);
+
+  --color-border-brand-bold:                var(--color-border-brand-bold-default);
+  --color-border-brand-bold-hovered:        var(--color-border-brand-bold-hovered);
+  --color-border-brand-bold-pressed:        var(--color-border-brand-bold-pressed);
+  --color-border-brand-bold-disabled:       var(--color-border-brand-bold-disabled);
+
+  --color-border-info-subtle:               var(--color-border-info-subtle-default);
+  --color-border-info-subtle-hovered:       var(--color-border-info-subtle-hovered);
+  --color-border-info-subtle-pressed:       var(--color-border-info-subtle-pressed);
+  --color-border-info-subtle-disabled:      var(--color-border-info-subtle-disabled);
+
+  --color-border-info-bold:                 var(--color-border-info-bold-default);
+  --color-border-info-bold-hovered:         var(--color-border-info-bold-hovered);
+  --color-border-info-bold-pressed:         var(--color-border-info-bold-pressed);
+  --color-border-info-bold-disabled:        var(--color-border-info-bold-disabled);
+
+  --color-border-danger-subtle:             var(--color-border-danger-subtle-default);
+  --color-border-danger-subtle-hovered:     var(--color-border-danger-subtle-hovered);
+  --color-border-danger-subtle-pressed:     var(--color-border-danger-subtle-pressed);
+  --color-border-danger-subtle-disabled:    var(--color-border-danger-subtle-disabled);
+
+  --color-border-danger-bold:               var(--color-border-danger-bold-default);
+  --color-border-danger-bold-hovered:       var(--color-border-danger-bold-hovered);
+  --color-border-danger-bold-pressed:       var(--color-border-danger-bold-pressed);
+  --color-border-danger-bold-disabled:      var(--color-border-danger-bold-disabled);
+
+  --color-border-warning-subtle:            var(--color-border-warning-subtle-default);
+  --color-border-warning-subtle-hovered:    var(--color-border-warning-subtle-hovered);
+  --color-border-warning-subtle-pressed:    var(--color-border-warning-subtle-pressed);
+  --color-border-warning-subtle-disabled:   var(--color-border-warning-subtle-disabled);
+
+  --color-border-warning-bold:              var(--color-border-warning-bold-default);
+  --color-border-warning-bold-hovered:      var(--color-border-warning-bold-hovered);
+  --color-border-warning-bold-pressed:      var(--color-border-warning-bold-pressed);
+  --color-border-warning-bold-disabled:     var(--color-border-warning-bold-disabled);
+
+  --color-border-success-subtle:            var(--color-border-success-subtle-default);
+  --color-border-success-subtle-hovered:    var(--color-border-success-subtle-hovered);
+  --color-border-success-subtle-pressed:    var(--color-border-success-subtle-pressed);
+  --color-border-success-subtle-disabled:   var(--color-border-success-subtle-disabled);
+
+  --color-border-success-bold:              var(--color-border-success-bold-default);
+  --color-border-success-bold-hovered:      var(--color-border-success-bold-hovered);
+  --color-border-success-bold-pressed:      var(--color-border-success-bold-pressed);
+  --color-border-success-bold-disabled:     var(--color-border-success-bold-disabled);
+
+  /* --- Icons --- */
+  --color-icon-neutral-subtle:              var(--color-icon-neutral-subtle-default);
+  --color-icon-neutral-subtle-hovered:      var(--color-icon-neutral-subtle-hovered);
+  --color-icon-neutral-subtle-pressed:      var(--color-icon-neutral-subtle-pressed);
+  --color-icon-neutral-subtle-disabled:     var(--color-icon-neutral-subtle-disabled);
+
+  --color-icon-neutral-bold:                var(--color-icon-neutral-bold-default);
+  --color-icon-neutral-bold-hovered:        var(--color-icon-neutral-bold-hovered);
+  --color-icon-neutral-bold-pressed:        var(--color-icon-neutral-bold-pressed);
+  --color-icon-neutral-bold-disabled:       var(--color-icon-neutral-bold-disabled);
+
+  --color-icon-brand-bold:                  var(--color-icon-brand-bold-default);
+  --color-icon-brand-bold-hovered:          var(--color-icon-brand-bold-hovered);
+  --color-icon-brand-bold-pressed:          var(--color-icon-brand-bold-pressed);
+  --color-icon-brand-bold-disabled:         var(--color-icon-brand-bold-disabled);
+
+  --color-icon-info-bold:                   var(--color-icon-info-bold-default);
+  --color-icon-info-bold-hovered:           var(--color-icon-info-bold-hovered);
+  --color-icon-info-bold-pressed:           var(--color-icon-info-bold-pressed);
+  --color-icon-info-bold-disabled:          var(--color-icon-info-bold-disabled);
+
+  --color-icon-danger-bold:                 var(--color-icon-danger-bold-default);
+  --color-icon-danger-bold-hovered:         var(--color-icon-danger-bold-hovered);
+  --color-icon-danger-bold-pressed:         var(--color-icon-danger-bold-pressed);
+  --color-icon-danger-bold-disabled:        var(--color-icon-danger-bold-disabled);
+
+  --color-icon-warning-bold:                var(--color-icon-warning-bold-default);
+  --color-icon-warning-bold-hovered:        var(--color-icon-warning-bold-hovered);
+  --color-icon-warning-bold-pressed:        var(--color-icon-warning-bold-pressed);
+  --color-icon-warning-bold-disabled:       var(--color-icon-warning-bold-disabled);
+
+  --color-icon-success-bold:                var(--color-icon-success-bold-default);
+  --color-icon-success-bold-hovered:        var(--color-icon-success-bold-hovered);
+  --color-icon-success-bold-pressed:        var(--color-icon-success-bold-pressed);
+  --color-icon-success-bold-disabled:       var(--color-icon-success-bold-disabled);
+}
+
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}

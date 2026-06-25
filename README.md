@@ -11,13 +11,12 @@ AI design and code tools are only as good as the system they consume. This repo 
 ## Token architecture
 
 ```
-tokens/
-  primitives.json        Raw scales: color, type, space, radius. No theme logic.
-  semantics.light.json   Role-based tokens (background, text, border, icon). Light values.
-  semantics.dark.json    Same roles, dark values. The theme switch lives entirely in this layer.
+styles/tokens/
+  primitives.css     Raw scales: color, type, space, radius. No theme logic.
+  semantics.css      Role-based tokens (background, text, border, icon). Light values in :root, dark values under .dark.
 ```
 
-Tokens are authored in Token Studio and versioned in this repo as the single source of truth.
+Tokens are authored in Token Studio and exported as CSS. The CSS files are versioned in this repo as the single source of truth.
 
 ### The naming grammar
 
@@ -46,7 +45,7 @@ WCAG pairings are designed into the token decisions, not checked afterward. The 
 
 - [x] Primitive tokens
 - [x] Semantic layer, light and dark
-- [ ] Tokens wired to code (CSS variables + Tailwind config)
+- [x] Tokens wired to code (CSS variables mapped to Tailwind v4 via `@theme {}`)
 - [ ] Core components (shadcn/ui restyled through the token layer)
 - [ ] 3 screens: Portfolio Dashboard, Asset Detail, Deposit & FX Conversion
 - [ ] Storybook
@@ -54,7 +53,7 @@ WCAG pairings are designed into the token decisions, not checked afterward. The 
 
 ## Stack
 
-Figma · Token Studio · Claude Code · Cursor · React · Next.js · Tailwind CSS · shadcn/ui · Storybook
+Figma · Token Studio · Claude Code · Cursor · React 19 · Vite · Tailwind CSS v4 · shadcn/ui · Storybook
 
 ## Author
 
