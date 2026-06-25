@@ -46,7 +46,7 @@ WCAG pairings are designed into the token decisions, not checked afterward. The 
 - [x] Primitive tokens
 - [x] Semantic layer, light and dark
 - [x] Tokens wired to code (CSS variables mapped to Tailwind v4 via `@theme {}`)
-- [ ] Core components (shadcn/ui restyled through the token layer)
+- [ ] Core components (shadcn/ui restyled through the token layer) — Button, Card, Input installed and wired to tokens; more to come
 - [ ] 3 screens: Portfolio Dashboard, Asset Detail, Deposit & FX Conversion
 - [ ] Storybook
 - [ ] Deployed app
