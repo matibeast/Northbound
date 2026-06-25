@@ -10,6 +10,14 @@ const preview: Preview = {
       },
     },
 
+    backgrounds: {
+      values: [
+        { name: "white", value: "#ffffff" },
+        { name: "light", value: "#f0f1f6" },
+        { name: "dark", value: "#16171d" },
+      ],
+    },
+
     a11y: {
       // 'todo' - show a11y violations in the test UI only
       // 'error' - fail CI on a11y violations
