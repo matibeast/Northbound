@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Chip } from "./chip"
 
@@ -182,7 +182,7 @@ export const MultiSelect: Story = {
             </Chip>
           ))}
         </div>
-        <p className="text-sm text-text-neutral-subtle">
+        <p className="text-sm text-[var(--color-text-neutral-subtle-default)]">
           {selected.size === 0
             ? "No tags selected"
             : `Selected: ${[...selected].join(", ")}`}
