@@ -73,9 +73,13 @@ Assembled from one or more Foundation components.
 
 ### Feature
 
-Domain-specific components tied to the investing product.
+Domain-specific components assembled from Composite components. Tied to the investing product screens.
 
-- [ ] No layout components yet
+- [x] Movement Breakdown — Card listing the full breakdown of a money movement: amount sent, exchange rate, fee, amount received, and expected arrival
+- [x] Price Chart — Card with a Sparkline, selectable time-period ChipGroup, and a performance Badge in the header
+- [x] Position Summary — Card showing a single position: market value, share count, today's return, total return, and average cost
+- [x] Personal Holdings — Card listing portfolio holdings as a scrollable HoldingRow list with optional section header
+- [x] Portfolio Balance — Standalone widget (no card) combining an AmountCluster with a performance Badge; four variants: size (md/sm) × direction (positive/negative)
 
 ### Layout
 
@@ -90,8 +94,8 @@ Domain-specific components tied to the investing product.
 - [x] Tokens wired to code (CSS variables mapped to Tailwind v4 via `@theme {}`)
 - [x] Foundation components — Icon, Avatar, Button, Input, Divider, Chip, Badge, Icon Tile, Sparkline
 - [x] Composite components — Chip Group, Amount Cluster, Data Row, Asset Header, Section Header, Card, Holding Row
-- [ ] Feature components — 
-- [ ] Layout components - 
+- [x] Feature components — Movement Breakdown, Price Chart, Position Summary, Personal Holdings, Portfolio Balance
+- [ ] Layout components — 
 - [x] Storybook wired up with stories for all components
 - [ ] 3 screens: Portfolio Dashboard, Asset Detail, Deposit & FX Conversion
 
