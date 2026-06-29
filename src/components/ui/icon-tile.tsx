@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 // Variants: neutral | info | brand | warning | success | negative
 // Icon color: icon-neutral-bold on neutral/brand (light bg), white on bold-color variants
 
-type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>
+export type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>
 
 const iconTileVariants = cva(
   "inline-flex shrink-0 items-center justify-center p-2 rounded-lg",

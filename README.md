@@ -63,13 +63,19 @@ Atomic, single-responsibility primitives. No dependencies on other design system
 
 Assembled from one or more Foundation components.
 
-- [ ] No composite components yet
+- [x] Chip Group — Single-select group of Chip components with controlled/uncontrolled selection
+- [x] Amount Cluster — Input with label and helper-text slot, three sizes
+- [x] Data Row — Icon Tile + label + value with neutral, positive, and negative appearances
+- [x] Asset Header — Avatar + title/label identity block, md and sm sizes
+- [x] Section Header — Title row with four right-slot variants: text, button, badge, none
+- [x] Card — Rounded surface pairing a Section Header with a flexible children slot
+- [x] Holding Row — Asset Header + Sparkline + value/change Badge; the core row of the portfolio holdings list
 
 ### Feature
 
 Domain-specific components tied to the investing product.
 
-- [ ] No feature components yet
+- [ ] No layout components yet
 
 ### Layout
 
@@ -83,10 +89,10 @@ Domain-specific components tied to the investing product.
 - [x] Semantic layer, light and dark
 - [x] Tokens wired to code (CSS variables mapped to Tailwind v4 via `@theme {}`)
 - [x] Foundation components — Icon, Avatar, Button, Input, Divider, Chip, Badge, Icon Tile, Sparkline
-- [ ] Composite components
-- [ ] Feature components
+- [x] Composite components — Chip Group, Amount Cluster, Data Row, Asset Header, Section Header, Card, Holding Row
+- [ ] Feature components — 
+- [ ] Layout components - 
 - [x] Storybook wired up with stories for all components
-- [ ] Layout components
 - [ ] 3 screens: Portfolio Dashboard, Asset Detail, Deposit & FX Conversion
 
 
