@@ -7,6 +7,7 @@ export { ArrowDownUp, ArrowUpRight, Percent, BanknoteArrowDown } from "lucide-re
 // --- Heroicons 24px outline ---
 export {
   ChevronLeftIcon,
+  EllipsisHorizontalIcon,
   MoonIcon,
   ClockIcon,
   PlusIcon,

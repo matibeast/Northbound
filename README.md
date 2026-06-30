@@ -83,7 +83,12 @@ Domain-specific components assembled from Composite components. Tied to the inve
 
 ### Layout
 
-- [ ] No layout components yet
+Full-screen shells and section-level layout components assembled from Feature components. One component per major screen region.
+
+- [x] AppBar — Top navigation bar with a leading back button, centered or left-aligned title area (plain text or AssetHeader), and a trailing action button
+- [x] BalanceSection — Portfolio balance widget: PortfolioBalance (AmountCluster + Badge) stacked above a primary CTA button
+- [x] HoldingsSection — Section header row (title + count) above a PersonalHoldings card
+- [x] ScreenScaffold — Full-screen shell (430 × 932) with AppBar pinned at the top and a content area below; provides background, padding, and overflow clipping
 
 ---
 
@@ -95,7 +100,7 @@ Domain-specific components assembled from Composite components. Tied to the inve
 - [x] Foundation components — Icon, Avatar, Button, Input, Divider, Chip, Badge, Icon Tile, Sparkline
 - [x] Composite components — Chip Group, Amount Cluster, Data Row, Asset Header, Section Header, Card, Holding Row
 - [x] Feature components — Movement Breakdown, Price Chart, Position Summary, Personal Holdings, Portfolio Balance
-- [ ] Layout components — 
+- [x] Layout components — AppBar, BalanceSection, HoldingsSection, ScreenScaffold
 - [x] Storybook wired up with stories for all components
 - [ ] 3 screens: Portfolio Dashboard, Asset Detail, Deposit & FX Conversion
 
