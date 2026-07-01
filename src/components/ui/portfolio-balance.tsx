@@ -20,6 +20,10 @@ export interface PortfolioBalanceProps extends React.ComponentProps<"div"> {
   variant?: PortfolioBalanceVariant
   label?: string
   value?: string
+  prefix?: React.ReactNode
+  showPrefix?: boolean
+  suffix?: React.ReactNode
+  showSuffix?: boolean
   helperText?: string
   showHelperText?: boolean
   badgeValue?: string
@@ -35,6 +39,10 @@ function PortfolioBalance({
   variant = "positive",
   label = "label",
   value,
+  prefix = "$",
+  showPrefix = true,
+  suffix,
+  showSuffix = false,
   helperText = "= $---.-- MXN",
   showHelperText,
   badgeValue = "+$--.--",
@@ -64,8 +72,10 @@ function PortfolioBalance({
         label={label}
         helperText={helperText}
         showHelperText={resolvedShowHelperText}
-        showPrefix={false}
-        showSuffix={false}
+        prefix={prefix}
+        showPrefix={showPrefix}
+        suffix={suffix}
+        showSuffix={showSuffix}
         defaultValue={value}
         readOnly
       />

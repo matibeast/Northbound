@@ -11,12 +11,16 @@ import type { PortfolioBalanceProps } from "./portfolio-balance"
 // showButton=true → renders a primary Button below the balance display
 // swapAction      → custom ReactNode to replace the default Button
 
-export interface BalanceSectionProps extends React.ComponentProps<"div"> {
+export interface BalanceSectionProps extends Omit<React.ComponentProps<"div">, "prefix"> {
   // PortfolioBalance props forwarded
   size?: PortfolioBalanceProps["size"]
   variant?: PortfolioBalanceProps["variant"]
   label?: string
   value?: string
+  prefix?: PortfolioBalanceProps["prefix"]
+  showPrefix?: boolean
+  suffix?: PortfolioBalanceProps["suffix"]
+  showSuffix?: boolean
   helperText?: string
   showHelperText?: boolean
   badgeValue?: string
@@ -37,6 +41,10 @@ function BalanceSection({
   variant = "positive",
   label = "label",
   value,
+  prefix,
+  showPrefix,
+  suffix,
+  showSuffix,
   helperText,
   showHelperText,
   badgeValue = "+$--.--",
@@ -62,6 +70,10 @@ function BalanceSection({
         variant={variant}
         label={label}
         value={value}
+        prefix={prefix}
+        showPrefix={showPrefix}
+        suffix={suffix}
+        showSuffix={showSuffix}
         helperText={helperText}
         showHelperText={showHelperText}
         badgeValue={badgeValue}
