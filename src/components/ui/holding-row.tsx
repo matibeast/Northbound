@@ -61,7 +61,7 @@ function HoldingRow({
         title={title}
         label={label}
         avatarLabel={avatarLabel}
-        className="shrink-0"
+        className="shrink-0 min-w-[135px]"
       />
 
       {/* Middle: sparkline — takes remaining space */}
