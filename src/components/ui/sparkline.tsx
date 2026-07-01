@@ -54,8 +54,10 @@ const sparklineVariants = cva("block shrink-0 overflow-visible", {
 
 type SparklineProps = Omit<React.ComponentProps<"svg">, "width" | "height"> &
   VariantProps<typeof sparklineVariants> & {
-    width?:  number
-    height?: number
+    width?:     number
+    height?:    number
+    linePath?:  string
+    areaPath?:  string
   }
 
 function Sparkline({
@@ -65,6 +67,8 @@ function Sparkline({
   size      = "md",
   width     = 275,
   height    = 79,
+  linePath  = LINE_PATH,
+  areaPath  = AREA_PATH,
   ...props
 }: SparklineProps) {
   const uid   = React.useId().replace(/:/g, "")
@@ -98,9 +102,9 @@ function Sparkline({
       </defs>
 
       <g transform={flipped ? "scale(-1,1) translate(-275,0)" : undefined}>
-        <path d={AREA_PATH} fill={`url(#sf-${uid})`} />
+        <path d={areaPath} fill={`url(#sf-${uid})`} />
         <path
-          d={LINE_PATH}
+          d={linePath}
           fill="none"
           stroke={stroke}
           strokeWidth="2"

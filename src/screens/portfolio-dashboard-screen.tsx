@@ -1,4 +1,3 @@
-import * as React from "react"
 import { ScreenScaffold } from "@/components/ui/screen-scaffold"
 import { BalanceSection } from "@/components/ui/balance-section"
 import { PriceChart } from "@/components/ui/price-chart"
@@ -17,7 +16,7 @@ function PortfolioDashboardScreen() {
       appBarTitle="John Doe"
       appBarShowTrailing={true}
     >
-      <div className="flex flex-col gap-8 items-start w-full overflow-hidden">
+      <div className="flex flex-col gap-8 w-full overflow-hidden">
         <BalanceSection
           label="Your total value"
           value="12,480.50"
