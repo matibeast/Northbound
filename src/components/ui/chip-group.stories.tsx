@@ -137,23 +137,25 @@ export const WithDisabled: Story = {
 
 // ─── Controlled ──────────────────────────────────────────────────────────────
 
+function ControlledDemo() {
+  const [selected, setSelected] = useState("1")
+  return (
+    <div className="flex flex-col gap-4">
+      <ChipGroup
+        items={defaultItems}
+        value={selected}
+        onChange={setSelected}
+      />
+      <p className="text-sm text-text-neutral-subtle">
+        Selected: chip {selected}
+      </p>
+    </div>
+  )
+}
+
 export const Controlled: Story = {
   name: "Controlled",
-  render: () => {
-    const [selected, setSelected] = useState("1")
-    return (
-      <div className="flex flex-col gap-4">
-        <ChipGroup
-          items={defaultItems}
-          value={selected}
-          onChange={setSelected}
-        />
-        <p className="text-sm text-text-neutral-subtle">
-          Selected: chip {selected}
-        </p>
-      </div>
-    )
-  },
+  render: () => <ControlledDemo />,
   parameters: {
     docs: {
       description: {

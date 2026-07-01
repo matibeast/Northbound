@@ -125,25 +125,27 @@ export const AllStates: Story = {
 
 // ─── Group toggle (single-select) ────────────────────────────────────────────
 
+function GroupToggleDemo() {
+  const [active, setActive] = useState<string>("All")
+  const options = ["All", "Design", "Engineering", "Product"]
+  return (
+    <div className="flex flex-wrap gap-2">
+      {options.map((opt) => (
+        <Chip
+          key={opt}
+          selected={active === opt}
+          onClick={() => setActive(opt)}
+        >
+          {opt}
+        </Chip>
+      ))}
+    </div>
+  )
+}
+
 export const GroupToggle: Story = {
   name: "Group Toggle",
-  render: () => {
-    const [active, setActive] = useState<string>("All")
-    const options = ["All", "Design", "Engineering", "Product"]
-    return (
-      <div className="flex flex-wrap gap-2">
-        {options.map((opt) => (
-          <Chip
-            key={opt}
-            selected={active === opt}
-            onClick={() => setActive(opt)}
-          >
-            {opt}
-          </Chip>
-        ))}
-      </div>
-    )
-  },
+  render: () => <GroupToggleDemo />,
   parameters: {
     docs: {
       description: {
@@ -156,40 +158,42 @@ export const GroupToggle: Story = {
 
 // ─── Multi-select ─────────────────────────────────────────────────────────────
 
+function MultiSelectDemo() {
+  const [selected, setSelected] = useState<Set<string>>(new Set())
+  const tags = ["React", "TypeScript", "CSS", "Figma", "Storybook"]
+
+  const toggle = (tag: string) =>
+    setSelected((prev) => {
+      const next = new Set(prev)
+      if (next.has(tag)) { next.delete(tag) } else { next.add(tag) }
+      return next
+    })
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <Chip
+            key={tag}
+            selected={selected.has(tag)}
+            onClick={() => toggle(tag)}
+          >
+            {tag}
+          </Chip>
+        ))}
+      </div>
+      <p className="text-sm text-[var(--color-text-neutral-subtle-default)]">
+        {selected.size === 0
+          ? "No tags selected"
+          : `Selected: ${[...selected].join(", ")}`}
+      </p>
+    </div>
+  )
+}
+
 export const MultiSelect: Story = {
   name: "Multi-select",
-  render: () => {
-    const [selected, setSelected] = useState<Set<string>>(new Set())
-    const tags = ["React", "TypeScript", "CSS", "Figma", "Storybook"]
-
-    const toggle = (tag: string) =>
-      setSelected((prev) => {
-        const next = new Set(prev)
-        next.has(tag) ? next.delete(tag) : next.add(tag)
-        return next
-      })
-
-    return (
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <Chip
-              key={tag}
-              selected={selected.has(tag)}
-              onClick={() => toggle(tag)}
-            >
-              {tag}
-            </Chip>
-          ))}
-        </div>
-        <p className="text-sm text-[var(--color-text-neutral-subtle-default)]">
-          {selected.size === 0
-            ? "No tags selected"
-            : `Selected: ${[...selected].join(", ")}`}
-        </p>
-      </div>
-    )
-  },
+  render: () => <MultiSelectDemo />,
   parameters: {
     docs: {
       description: {

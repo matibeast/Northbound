@@ -56,7 +56,7 @@ function ChipGroup({
     <div
       data-slot="chip-group"
       role="group"
-      className={cn("flex flex-wrap items-center gap-3", className)}
+      className={cn("flex flex-nowrap items-center gap-3 overflow-x-auto scrollbar-none", className)}
       {...props}
     >
       {items.map((item) => (
