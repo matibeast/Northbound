@@ -29,7 +29,7 @@ const avatarVariants = cva(
 
 const avatarLabelVariants = cva(
   // Figma: text-black → --color-text-neutral-bold-default (#0e121b)
-  "font-normal text-text-neutral-bold whitespace-nowrap select-none",
+  "font-regular text-text-neutral-bold whitespace-nowrap select-none",
   {
     variants: {
       size: {
