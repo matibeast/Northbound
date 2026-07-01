@@ -33,7 +33,7 @@ export interface AmountClusterProps
 const labelFont: Record<AmountClusterSize, string> = {
   lg: "text-base font-medium leading-base text-text-neutral-subtle",
   md: "text-base font-medium leading-base text-text-neutral-subtle",
-  sm: "text-sm font-normal leading-sm text-text-neutral-subtle",
+  sm: "text-sm font-regular leading-sm text-text-neutral-subtle",
 }
 
 function AmountCluster({
@@ -89,7 +89,7 @@ function AmountCluster({
       {showHelperText && (
         <span
           data-slot="helper-text"
-          className="w-full shrink-0 break-words not-italic text-sm font-normal leading-sm text-text-neutral-subtlest"
+          className="w-full shrink-0 break-words not-italic text-sm font-regular leading-sm text-text-neutral-subtlest"
         >
           {helperText}
         </span>

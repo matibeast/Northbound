@@ -61,10 +61,10 @@ function Badge({
     >
       {showIcon && <Icon aria-hidden className="size-5 shrink-0" />}
       {showValue && (
-        <span className="text-sm font-bold leading-5 whitespace-nowrap">{value}</span>
+        <span className="text-sm font-bold leading-sm whitespace-nowrap">{value}</span>
       )}
       {showCaption && (
-        <span className="text-sm font-regular leading-5 whitespace-nowrap">{caption}</span>
+        <span className="text-sm font-regular leading-sm whitespace-nowrap">{caption}</span>
       )}
     </div>
   )

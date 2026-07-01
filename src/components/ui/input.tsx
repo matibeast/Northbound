@@ -50,9 +50,9 @@ function containerClasses(size: InputSize, appearance: InputAppearance, disabled
 
   if (size === "sm") {
     const style: Record<InputAppearance, string> = {
-      default: "bg-bg-neutral-subtlest border   border-text-neutral-subtlest",
+      default: "bg-bg-neutral-subtlest border   border-border-neutral-subtle",
       focused: "bg-bg-neutral-subtlest border-4 border-border-info-bold",
-      filled:  "bg-bg-neutral-subtlest border   border-text-neutral-bold",
+      filled:  "bg-bg-neutral-subtlest border   border-border-neutral-bold",
       error:   "bg-bg-danger-subtle    border   border-border-danger-bold text-text-danger-bold",
     }
     return cn(base, pad, style[appearance])
@@ -76,7 +76,7 @@ function containerClasses(size: InputSize, appearance: InputAppearance, disabled
 
 const valueFontClass: Record<InputSize, string> = {
   lg: "text-4xl font-bold   leading-3xl",  // 40px / 700 / 34px
-  md: "text-3xl font-normal leading-xl",   // 30px / 400 / 28px
+  md: "text-3xl font-regular leading-xl",   // 30px / 400 / 28px
   sm: "text-base font-medium leading-base", // 16px / 500 / 22px
 }
 
