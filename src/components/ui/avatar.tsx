@@ -34,7 +34,7 @@ const avatarLabelVariants = cva(
     variants: {
       size: {
         md: "text-sm leading-sm",  // 14 px / 20 px
-        sm: "text-[7px] leading-[10px]",                                               //  7 px / 10 px
+        sm: "text-xs leading-xs",
       },
     },
     defaultVariants: {

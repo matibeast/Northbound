@@ -313,6 +313,7 @@
   --font-mono: var(--font-family-mono);
 
   /* Font Size — overrides Tailwind defaults with pixel-exact token values */
+  --text-xs:   var(--font-size-xs);
   --text-sm:   var(--font-size-sm);
   --text-base: var(--font-size-base);
   --text-lg:   var(--font-size-lg);
@@ -330,6 +331,7 @@
   --font-weight-bold:     700;
 
   /* Line Height */
+  --leading-xs:   var(--font-lineheight-xs);
   --leading-sm:   var(--font-lineheight-sm);
   --leading-base: var(--font-lineheight-base);
   --leading-lg:   var(--font-lineheight-lg);
