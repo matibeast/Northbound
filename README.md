@@ -16,7 +16,7 @@ styles/tokens/
   semantics.css      Role-based tokens (background, text, border, icon). Light values in :root, dark values under .dark.
 ```
 
-Tokens are authored in Token Studio and exported as CSS. The CSS files are versioned in this repo as the single source of truth.
+Tokens are authored in Token Studio and exported as CSS. The CSS files are versioned in this repo as the single source of truth — `semantics.css` references primitives as `var()` chains, so the full design decision is inspectable end to end.
 
 ### The naming grammar
 
@@ -35,7 +35,7 @@ This is what scales the system from 3 screens to a full product without renaming
 
 ### Traceability
 
-Tokens keep their semantic-to-primitive references intact, so the chain is inspectable end to end. Open `semantics.light.json` and you see `{color.gold.500}`, not a baked hex value. The reference chain is the architecture, and it survives into the generated CSS as a `var()` chain.
+Tokens keep their semantic-to-primitive references intact, so the chain is inspectable end to end. Open `styles/tokens/semantics.css` and you see `var(--color-gold-500)`, not a baked hex value. The reference chain is the architecture — a `var()` chain from semantic intent all the way down to a primitive hex.
 
 ### Accessibility
 
@@ -102,7 +102,7 @@ Full-screen shells and section-level layout components assembled from Feature co
 - [x] Feature components — Movement Breakdown, Price Chart, Position Summary, Personal Holdings, Portfolio Balance
 - [x] Layout components — AppBar, BalanceSection, HoldingsSection, ScreenScaffold
 - [x] Storybook wired up with stories for all components
-- [ ] 3 screens: Portfolio Dashboard, Asset Detail, Deposit & FX Conversion
+- [x] 3 screens: Portfolio Dashboard, Asset Detail, Deposit & FX Conversion
 
 
 ## Stack

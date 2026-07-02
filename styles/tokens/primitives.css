@@ -7,6 +7,8 @@
  * referenced directly in components.
  */
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 :root {
   /* Color / Gray */
   --color-gray-50: #F0F1F6;
@@ -67,6 +69,7 @@
   --font-weight-bold: 700;
 
   /* Font / Size */
+  --font-size-xs: 7px;
   --font-size-sm: 14px;
   --font-size-base: 16px;
   --font-size-lg: 18px;
@@ -78,6 +81,7 @@
   --font-size-6xl: 96px;
 
   /* Font / Line Height */
+  --font-lineheight-xs: 10px;
   --font-lineheight-sm: 20px;
   --font-lineheight-base: 22px;
   --font-lineheight-lg: 24px;
