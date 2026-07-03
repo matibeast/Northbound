@@ -1,0 +1,92 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Foundation/Design Tokens" />
+
+# Design Tokens
+
+Northbound's design tokens live in two layers under [`styles/tokens/`](../styles/tokens). Every value a
+component uses should trace back through this chain — components never hard-code a hex, a pixel size,
+or a raw Figma value directly.
+
+## The two layers
+
+### 1. Primitives — [`primitives.css`](../styles/tokens/primitives.css)
+
+Raw, context-free values pulled straight from the Figma "Primitives" mode: color ramps, type scale,
+spacing, radii, border widths, opacity, sizing. These are the only tokens with a literal value
+(a hex code, a `px` number).
+
+```css
+--color-gray-50: #F0F1F6;
+--color-gold-500: #FCD435;
+--font-size-base: 16px;
+--spacing-4: 16px;
+```
+
+Primitives are **never** referenced directly from component code — they only exist to feed the
+semantic layer below.
+
+### 2. Semantics — [`semantics.css`](../styles/tokens/semantics.css)
+
+Contextual tokens that alias primitives via `var()`. This is the layer components actually consume.
+Semantic tokens carry meaning ("this is a danger background") instead of a color name, so the same
+component code can repaint entirely — including for dark mode — without changing a single class name.
+
+```css
+--color-background-danger-subtle-default: var(--color-red-100);
+--color-text-brand-bold-default: var(--color-gold-700);
+```
+
+`:root` holds the light (default) theme. The `.dark` class redeclares the same token *names* against
+different primitives — add `.dark` to `<html>` or any ancestor to flip the whole app to dark mode with
+no component changes.
+
+## Naming grammar
+
+Semantic tokens follow a fixed, order-dependent grammar:
+
+```
+--color-{role}-{intent}-{emphasis}-{state}
+```
+
+| Segment | Values | Meaning |
+| --- | --- | --- |
+| `role` | `background`, `text`, `border`, `icon` | What kind of surface this paints |
+| `intent` | `neutral`, `brand`, `info`, `danger`, `warning`, `success` | Why it's colored the way it is |
+| `emphasis` | `subtlest`, `subtle`, `bold` | How much visual weight it should carry |
+| `state` | `default`, `hovered`, `pressed`, `disabled` | Interaction state |
+
+Non-color tokens (spacing, sizing, radius, font) drop the `color-` prefix and the `intent`/`emphasis`/`state`
+segments, since they aren't state-dependent: `--spacing-4`, `--font-size-lg`, `--borderradius-full`.
+
+## The `var()` chain, end to end
+
+A component never writes a color — it points at a semantic token, which points at a primitive:
+
+```
+Chip (selected)                             chip.tsx
+  → var(--color-background-brand-bold-default)   semantics.css (:root)
+    → var(--color-gold-500)                      semantics.css (:root)
+      → #FCD435                                   primitives.css
+```
+
+Flip to dark mode and only the middle link changes — the component and the primitive palette stay
+identical:
+
+```
+Chip (selected)                             chip.tsx
+  → var(--color-background-brand-bold-default)   semantics.css (.dark)
+    → var(--color-gold-500)                      semantics.css (.dark, same primitive)
+      → #FCD435                                   primitives.css
+```
+
+For roles where dark mode actually changes the mapped ramp (not just the shade), e.g. neutral
+backgrounds, the semantic token swaps which primitive it points to entirely — light maps
+`--color-background-neutral-subtlest-default` to `--color-gray-50`, dark maps the same semantic
+token to `--color-gray-900`. Components stay untouched either way.
+
+## Rule of thumb
+
+- Writing a component? Reference a **semantic** token (`--color-text-neutral-subtle-default`), never a primitive.
+- Introducing a new visual state? Add it to `semantics.css` for both `:root` and `.dark`, aliasing existing primitives — don't invent a new primitive unless the value truly doesn't exist yet.
+- Everything should be traceable: primitive → semantic → component, in that order.
