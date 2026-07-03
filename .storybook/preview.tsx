@@ -1,7 +1,36 @@
-import type { Preview } from '@storybook/react-vite'
+import type { Decorator, Preview } from '@storybook/react-vite'
 import '../src/index.css'
 
+// Applies the `.dark` class so semantic tokens in semantics.css repaint —
+// this is the only place in the repo dark mode can currently be switched on.
+const withTheme: Decorator = (Story, context) => {
+  const theme = context.globals.theme === 'dark' ? 'dark' : undefined
+  return (
+    <div className={theme}>
+      <Story />
+    </div>
+  )
+}
+
 const preview: Preview = {
+  globalTypes: {
+    theme: {
+      description: 'Theme — toggles the `.dark` class on the story root',
+      defaultValue: 'light',
+      toolbar: {
+        title: 'Theme',
+        icon: 'circlehollow',
+        items: [
+          { value: 'light', icon: 'sun', title: 'Light' },
+          { value: 'dark', icon: 'moon', title: 'Dark' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
+
+  decorators: [withTheme],
+
   parameters: {
     controls: {
       matchers: {
@@ -22,7 +51,7 @@ const preview: Preview = {
       // 'todo' - show a11y violations in the test UI only
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
-      test: 'todo'
+      test: 'error'
     },
 
     options: {

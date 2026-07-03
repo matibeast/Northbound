@@ -36,7 +36,10 @@ const containerPadding: Record<InputSize, string> = {
 }
 
 function containerClasses(size: InputSize, appearance: InputAppearance, disabled: boolean) {
-  const base = "inline-flex w-full items-end gap-2 rounded-lg transition-colors"
+  // focus-within always shows the info-bold ring on real keyboard/mouse focus,
+  // independent of the (manually-controlled) `appearance` prop — the native
+  // <input> has outline suppressed, so this is the only visible focus indicator.
+  const base = "inline-flex w-full items-end gap-2 rounded-lg transition-colors focus-within:border-4 focus-within:border-border-info-bold"
   const pad  = containerPadding[size]
 
   if (disabled) {

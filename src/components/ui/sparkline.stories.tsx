@@ -51,7 +51,7 @@ export const AllVariants: Story = {
       {(["brand", "positive", "negative"] as const).flatMap((variant) =>
         (["left", "right"] as const).map((direction) => (
           <div key={`${variant}-${direction}`} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            <span style={{ fontFamily: "Inter, sans-serif", fontSize: 11, fontWeight: 500, color: "#6F7B9B", letterSpacing: "0.04em", textTransform: "uppercase" }}>
+            <span style={{ fontFamily: "Inter, sans-serif", fontSize: 11, fontWeight: 500, color: "#566280", letterSpacing: "0.04em", textTransform: "uppercase" }}>
               {variant} · {direction}
             </span>
             <Sparkline variant={variant} direction={direction} />
@@ -88,7 +88,7 @@ export const InContext: Story = {
             <div style={{ fontFamily: "Inter, sans-serif", fontSize: 26, fontWeight: 700, color: "var(--color-gray-900, #0E121B)", lineHeight: 1.2, marginTop: 6, fontVariantNumeric: "tabular-nums" }}>
               {value}
             </div>
-            <div style={{ fontFamily: "Inter, sans-serif", fontSize: 12, fontWeight: 500, marginTop: 2, color: variant === "positive" ? "var(--color-green-700, #386A1B)" : variant === "negative" ? "var(--color-red-700, #922A38)" : "var(--color-gold-700, #BA8508)" }}>
+            <div style={{ fontFamily: "Inter, sans-serif", fontSize: 12, fontWeight: 500, marginTop: 2, color: variant === "positive" ? "var(--color-green-700, #386A1B)" : variant === "negative" ? "var(--color-red-700, #922A38)" : "var(--color-gold-900, #744C06)" }}>
               {delta} vs last month
             </div>
           </div>

@@ -141,11 +141,11 @@ export const AllSmStates: Story = {
   name: 'sm / All States',
   render: () => (
     <div className="flex flex-col gap-4 p-8 w-64">
-      <Input size="sm" appearance="default" prefix="$" suffix="$" defaultValue="value" />
-      <Input size="sm" appearance="focused" prefix="$" suffix="$" defaultValue="value" />
-      <Input size="sm" appearance="filled"  prefix="$" suffix="$" defaultValue="value" />
-      <Input size="sm" appearance="error"   prefix="$" suffix="$" defaultValue="value" />
-      <Input size="sm" appearance="default" prefix="$" suffix="$" defaultValue="value" disabled />
+      <Input aria-label="Default" size="sm" appearance="default" prefix="$" suffix="$" defaultValue="value" />
+      <Input aria-label="Focused" size="sm" appearance="focused" prefix="$" suffix="$" defaultValue="value" />
+      <Input aria-label="Filled"  size="sm" appearance="filled"  prefix="$" suffix="$" defaultValue="value" />
+      <Input aria-label="Error"   size="sm" appearance="error"   prefix="$" suffix="$" defaultValue="value" />
+      <Input aria-label="Disabled" size="sm" appearance="default" prefix="$" suffix="$" defaultValue="value" disabled />
     </div>
   ),
 }
@@ -154,11 +154,11 @@ export const AllMdStates: Story = {
   name: 'md / All States',
   render: () => (
     <div className="flex flex-col gap-4 p-8 w-72">
-      <Input size="md" appearance="default" prefix="$" suffix="$" defaultValue="value" />
-      <Input size="md" appearance="focused" prefix="$" suffix="$" defaultValue="value" />
-      <Input size="md" appearance="filled"  prefix="$" suffix="$" defaultValue="value" />
-      <Input size="md" appearance="error"   prefix="$" suffix="$" defaultValue="value" />
-      <Input size="md" appearance="default" prefix="$" suffix="$" defaultValue="value" disabled />
+      <Input aria-label="Default" size="md" appearance="default" prefix="$" suffix="$" defaultValue="value" />
+      <Input aria-label="Focused" size="md" appearance="focused" prefix="$" suffix="$" defaultValue="value" />
+      <Input aria-label="Filled"  size="md" appearance="filled"  prefix="$" suffix="$" defaultValue="value" />
+      <Input aria-label="Error"   size="md" appearance="error"   prefix="$" suffix="$" defaultValue="value" />
+      <Input aria-label="Disabled" size="md" appearance="default" prefix="$" suffix="$" defaultValue="value" disabled />
     </div>
   ),
 }
@@ -167,11 +167,11 @@ export const AllLgStates: Story = {
   name: 'lg / All States',
   render: () => (
     <div className="flex flex-col gap-4 p-8 w-96">
-      <Input size="lg" appearance="default" prefix="$" suffix="$" defaultValue="value" />
-      <Input size="lg" appearance="focused" prefix="$" suffix="$" defaultValue="value" />
-      <Input size="lg" appearance="filled"  prefix="$" suffix="$" defaultValue="value" />
-      <Input size="lg" appearance="error"   prefix="$" suffix="$" defaultValue="value" />
-      <Input size="lg" appearance="default" prefix="$" suffix="$" defaultValue="value" disabled />
+      <Input aria-label="Default" size="lg" appearance="default" prefix="$" suffix="$" defaultValue="value" />
+      <Input aria-label="Focused" size="lg" appearance="focused" prefix="$" suffix="$" defaultValue="value" />
+      <Input aria-label="Filled"  size="lg" appearance="filled"  prefix="$" suffix="$" defaultValue="value" />
+      <Input aria-label="Error"   size="lg" appearance="error"   prefix="$" suffix="$" defaultValue="value" />
+      <Input aria-label="Disabled" size="lg" appearance="default" prefix="$" suffix="$" defaultValue="value" disabled />
     </div>
   ),
 }

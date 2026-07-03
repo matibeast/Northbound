@@ -1,0 +1,149 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Foundation/Accessibility" />
+
+# Accessibility — WCAG AA pass
+
+The `@storybook/addon-a11y` gate is set to `test: 'error'` in
+[`.storybook/preview.tsx`](../.storybook/preview.tsx) — every story runs an axe-core scan as part of
+`npx vitest run`, and a violation fails the build. This page records the pass that got the suite to a
+clean (or knowingly-recorded) state, so the reasoning behind each fix — and each thing left unfixed —
+stays attached to the system instead of living in a PR description.
+
+## Result
+
+Turning the gate from `'todo'` to `'error'` surfaced **43 failing story tests** across 13 files, in three
+axe rules: `label` (35), `button-name` (28), `color-contrast` (9) — a story can trip more than one rule,
+which is why these don't sum to 43. **41 were fixed** by code changes below. **2 are recorded, not
+fixed** — a legitimate design-token contrast gap that isn't wired into any real screen yet, listed under
+[Recorded, not fixed](#recorded-not-fixed).
+
+## What was fixed
+
+### `button-name` — icon-only buttons had no accessible name
+
+`Button` hides its `children` visually when `iconOnly` is set (`{!iconOnly && children}`), but nothing
+ever supplied a replacement name — so every icon-only button, including `AppBar`'s back and "more"
+buttons, was silent to a screen reader despite callers already passing a descriptive `children` string
+in most demos.
+
+Fixed in [`button.tsx`](../src/components/ui/button.tsx): when `iconOnly` is true, `children` is a
+string, and no explicit `aria-label` is passed, the button now derives `aria-label` from `children`
+automatically. `AppBar`'s leading/trailing buttons don't pass `children` at all, so they got explicit
+`aria-label="Back"` / `aria-label="More options"` in
+[`app-bar.tsx`](../src/components/ui/app-bar.tsx).
+
+### `label` — the amount input's visible label wasn't wired up
+
+`AmountCluster` already renders a visible label (`<span data-slot="label">`) directly above its
+`Input`, but it was never associated with the input programmatically, so every composite built on it —
+`PortfolioBalance`, `BalanceSection`, `PositionSummary`, `Card`'s "With Amount Cluster" story, and all
+three screens — read as an unlabeled field.
+
+Fixed in [`amount-cluster.tsx`](../src/components/ui/amount-cluster.tsx): the span is now a real
+`<label htmlFor>` pointing at an id generated with `React.useId()` and passed through to `Input`. One
+fix, cascades to every consumer.
+
+The bare `Input` demos in `input.stories.tsx` (the "All States" grids) render `Input` directly with no
+`AmountCluster` wrapper, so they got explicit `aria-label`s describing each state (`"Default"`,
+`"Focused"`, `"Filled"`, `"Error"`, `"Disabled"`).
+
+### `color-contrast` — two decorative story colors
+
+Both contrast failures axe caught were in `sparkline.stories.tsx`'s illustrative demo markup (not the
+`Sparkline` component itself, which only renders inert SVG): a `#6F7B9B` label at 3.73:1 and an inline
+`gold-700` delta color at 3.25:1, both against light backgrounds. Darkened to `#566280` (5.39:1) and
+`gold-900` (7.56:1) respectively — same palette family, now passing.
+
+## A real bug axe couldn't catch: Input had no live focus indicator
+
+Axe-core doesn't drive keyboard interaction, so this only turned up in a manual sweep (per the ticket's
+"keyboard navigation, focus visibility" ask), verified with Playwright by tabbing into the Deposit
+screen's live, editable amount field:
+
+`Input`'s native `<input>` has `outline-none` unconditionally, and the visual "focused" ring
+(`border-4 border-border-info-bold`) is only applied when the `appearance="focused"` prop is set
+manually — nothing in the codebase wires that prop to actual browser focus. `Button` and `Chip` already
+do this correctly via `focus-visible:` variants; `Input` never did, and it's the one component in the
+app with a real, non-`readOnly` field (`DepositScreen`'s amount input). A keyboard user tabbing through
+that screen got zero visual indication of where focus was — a WCAG 2.4.7 (Focus Visible) failure.
+
+Fixed in [`input.tsx`](../src/components/ui/input.tsx): added `focus-within:border-4
+focus-within:border-border-info-bold` to the container's base classes, so the existing "focused" look
+now fires on real focus regardless of the `appearance` prop. Confirmed visually — tabbing to the Deposit
+screen's amount field now shows the blue 4px ring.
+
+Keyboard nav otherwise checked out: every `onClick` in the component set is on a real `<button>`
+(`Button` or `Chip`), never a bare `<div>`, so nothing needed a `role`/`tabIndex` retrofit.
+
+## Contrast, both themes
+
+The addon only scans what a story renders, and every story rendered in light mode — nothing in this
+repo applied the `.dark` class anywhere, in Storybook or in `App.tsx`, so dark theme had no way to be
+visually previewed or axe-scanned. To "verify the rest" per the ticket, every semantic text/background
+pairing in [`semantics.css`](../styles/tokens/semantics.css) was first computed directly (WCAG
+relative-luminance formula) for both `:root` and `.dark`, without rendering anything.
+
+**Confirmed:** the README's brand-anchor claim — `text-brand-bold` (`gold-500`) on `bg-neutral-subtlest`
+(`gray-900`) in dark mode — computes to **13.03:1**, matching the documented 13:1 (AAA).
+
+**Everything else in active use passes AA** (neutral text at all three emphases, danger/warning/success
+text, icon tokens against the 3:1 non-text bar) in both themes.
+
+### Recorded, not fixed
+
+These are real gaps in the token set, not story artifacts — but none are wired into a shipped
+component today, and fixing them means changing a semantic color mapping, which is a design call, not
+something this pass should make unilaterally:
+
+- **Badge `info` variant — the 2 remaining test failures.** `text-info-bold` (`blue-700`, `#0F71B3`) on
+  `bg-info-subtle` (`blue-100`, `#D6F0FF`) is **4.4:1**, just under the 4.5:1 bar for 14px text. Not used
+  by any real screen (only `badge.stories.tsx`'s `Info` variant), but it's a real component prop, not a
+  demo hack, so it stays failing rather than getting silently patched. Bumping
+  `--color-text-info-bold-default` to `blue-900` would land at 10.25:1 and matches the pattern the scale
+  already uses for hover/pressed states — worth a design check before merging.
+- **`text-brand-bold` (`gold-700`) in light mode** — 2.89:1 on `bg-neutral-subtlest`, 3.26:1 on white.
+  Fails AA even at large-text size on the subtlest background. Currently only referenced in this doc
+  page and the (now-fixed) Sparkline story; not used by any real component, so there's no active bug —
+  flagging so it doesn't become one the day someone reaches for it.
+- **`text-neutral-subtlest` (`gray-400`) in dark mode** — 4.44:1 on `gray-900`, a hair under 4.5:1. This
+  is a real, actively-used token (helper text, sm labels). Dark mode is now reachable (see below), so
+  this can be checked live with axe rather than by hand — left as recorded rather than fixed since, like
+  the other items here, closing it means moving a color, not writing code.
+- **`border-neutral-bold`** (secondary button/input borders) — ~2.5:1 light, ~2.2:1 dark, under the 3:1
+  WCAG 1.4.11 non-text contrast bar for UI component boundaries.
+
+## Dark mode: added a toggle, then found it didn't actually do anything
+
+There was no way to switch the app or Storybook into dark mode at all — no `globalTypes` toggle, no
+decorator, no `.dark` anywhere. Added both:
+
+- [`.storybook/preview.tsx`](../.storybook/preview.tsx) — a `theme` `globalTypes` entry (toolbar
+  sun/moon toggle, defaults to `light` so the existing test suite is untouched) plus a decorator that
+  wraps each story in `<div className={theme === 'dark' ? 'dark' : undefined}>`.
+
+That alone rendered — visibly nothing. Toggling the Storybook toolbar to dark left every component
+exactly the same light colors. Traced it: `semantics.css`'s `.dark` block *was* correctly overriding
+`--color-background-neutral-subtlest-default` and friends (confirmed via `getComputedStyle` — the raw
+token really did flip to `#0E121B`), but the Tailwind-facing alias one hop up
+(`--color-bg-neutral-subtlest: var(--color-background-neutral-subtlest-default)`, declared in
+[`index.css`](../src/index.css)'s `@theme` block) stayed frozen at its light value regardless of `.dark`
+being applied anywhere in the tree.
+
+Root cause: Tailwind v4's plain `@theme` registers each variable as its own CSS custom property with a
+value baked at build time, rather than keeping it as a live reference — so `--color-bg-neutral-subtlest`
+never actually re-resolved `--color-background-neutral-subtlest-default` at paint time the way plain CSS
+custom-property inheritance would suggest. This is a documented Tailwind v4 pattern for exactly this
+case: variables meant to stay dynamic under a runtime class toggle (their own docs' example is
+`next-themes`) need `@theme inline`, which inlines the `var()` reference into every generated utility
+class instead of freezing it. This file already uses `@theme inline` correctly for the shadcn
+sidebar/chart tokens further down — the semantic color block above it just wasn't.
+
+Fixed by changing that block's `@theme` to `@theme inline`. Re-verified with Playwright: the `Card` story
+now genuinely repaints (`#F0F1F6` → `#0E121B`) when the toolbar theme switches, confirmed with a
+screenshot. Full suite re-run afterward at the same 196/198 baseline — the change is CSS-generation-only
+and doesn't touch light mode's output.
+
+This means the dark-mode contrast items above are no longer speculative — they're checkable live in
+Storybook (toggle the toolbar, run the addon panel, or add `.dark`-scoped stories to the vitest sweep)
+whenever someone wants to close them out.

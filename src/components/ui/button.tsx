@@ -88,11 +88,19 @@ function Button({
 }: ButtonProps) {
   const Comp = asChild ? Slot.Root : "button"
 
+  // iconOnly hides the visible label — fall back to it as the accessible
+  // name so the button isn't silently unlabeled for screen readers.
+  const iconOnlyLabel =
+    iconOnly && !props["aria-label"] && typeof children === "string"
+      ? children
+      : undefined
+
   return (
     <Comp
       data-slot="button"
       data-variant={variant}
       data-size={size}
+      aria-label={iconOnlyLabel}
       className={cn(buttonVariants({ variant, size, iconOnly }), className)}
       {...props}
     >
