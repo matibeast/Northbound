@@ -3,7 +3,7 @@ import { BalanceSection } from "./balance-section"
 
 const meta = {
   component: BalanceSection,
-  title: "UI/BalanceSection",
+  title: "Layout/BalanceSection",
   tags: ["autodocs"],
   args: {
     size: "md",

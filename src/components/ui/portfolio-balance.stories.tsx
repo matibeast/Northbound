@@ -6,7 +6,7 @@ const ALL_VARIANTS = ["positive", "negative"] as const
 
 const meta = {
   component: PortfolioBalance,
-  title: "UI/PortfolioBalance",
+  title: "Feature/PortfolioBalance",
   tags: ["autodocs"],
   args: {
     size: "md",

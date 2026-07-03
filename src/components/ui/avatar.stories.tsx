@@ -8,7 +8,7 @@ const PLACEHOLDER_IMAGE =
 
 const meta = {
   component: Avatar,
-  title: "UI/Avatar",
+  title: "Foundation/Avatar",
   tags: ["autodocs"],
   args: {
     variant: "initials",

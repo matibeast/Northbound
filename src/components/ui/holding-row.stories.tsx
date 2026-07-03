@@ -9,7 +9,7 @@ const ALL_CHANGE_VARIANTS: BadgeVariant[] = ["success", "danger", "info"]
 
 const meta = {
   component: HoldingRow,
-  title: "UI/HoldingRow",
+  title: "Composite/HoldingRow",
   tags: ["autodocs"],
   args: {
     title: "title",

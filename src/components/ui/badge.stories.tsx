@@ -6,7 +6,7 @@ const ALL_VARIANTS: BadgeVariant[] = ["success", "danger", "info"]
 
 const meta = {
   component: Badge,
-  title: "UI/Badge",
+  title: "Foundation/Badge",
   tags: ["autodocs"],
   args: {
     variant: "success",

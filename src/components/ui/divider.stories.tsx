@@ -3,7 +3,7 @@ import { Divider } from "./divider"
 
 const meta = {
   component: Divider,
-  title: "UI/Divider",
+  title: "Foundation/Divider",
   tags: ["autodocs"],
   args: {
     orientation: "horizontal",

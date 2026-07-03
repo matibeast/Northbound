@@ -10,7 +10,7 @@ import {
 
 const meta = {
   component: MovementBreakdown,
-  title: "UI/MovementBreakdown",
+  title: "Feature/MovementBreakdown",
   tags: ["autodocs"],
   args: {
     title: "The full breakdown",

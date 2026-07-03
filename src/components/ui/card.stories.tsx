@@ -7,7 +7,7 @@ import { AmountCluster } from "./amount-cluster"
 
 const meta = {
   component: Card,
-  title: "UI/Card",
+  title: "Composite/Card",
   tags: ["autodocs"],
   args: {
     showHeader: true,

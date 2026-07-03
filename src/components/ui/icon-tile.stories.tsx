@@ -46,7 +46,7 @@ type StoryArgs = Omit<React.ComponentProps<typeof IconTile>, "icon"> & {
 
 const meta = {
   component: IconTile,
-  title: "UI/IconTile",
+  title: "Foundation/IconTile",
   tags: ["autodocs"],
   args: {
     variant: "neutral",

@@ -4,7 +4,7 @@ import { PlusIcon } from "./icon"
 
 const meta = {
   component: PersonalHoldings,
-  title: "UI/PersonalHoldings",
+  title: "Feature/PersonalHoldings",
   tags: ["autodocs"],
   args: {
     showHeader: false,

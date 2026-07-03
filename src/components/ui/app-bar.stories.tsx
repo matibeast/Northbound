@@ -6,7 +6,7 @@ const ALL_CONTENT: AppBarContent[] = ["header", "assetHeader"]
 
 const meta = {
   component: AppBar,
-  title: "UI/AppBar",
+  title: "Layout/AppBar",
   tags: ["autodocs"],
   args: {
     centered: false,

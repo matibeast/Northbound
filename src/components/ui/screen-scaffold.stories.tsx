@@ -5,7 +5,7 @@ import { HoldingsSection } from "./holdings-section"
 
 const meta = {
   component: ScreenScaffold,
-  title: "UI/ScreenScaffold",
+  title: "Layout/ScreenScaffold",
   tags: ["autodocs"],
   args: {
     appBarCentered: false,
