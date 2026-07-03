@@ -68,6 +68,7 @@ function AppBar({
           iconStart={ChevronLeftIcon}
           onClick={onLeadingClick}
           className="relative z-10 shrink-0"
+          aria-label="Back"
         />
       )}
 
@@ -107,6 +108,7 @@ function AppBar({
           iconStart={EllipsisHorizontalIcon}
           onClick={onTrailingClick}
           className="relative z-10 shrink-0"
+          aria-label="More options"
         />
       )}
 

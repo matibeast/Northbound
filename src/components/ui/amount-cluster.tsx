@@ -54,6 +54,8 @@ function AmountCluster({
   onChange,
   ...props
 }: AmountClusterProps) {
+  const inputId = React.useId()
+
   return (
     <div
       data-slot="amount-cluster"
@@ -65,14 +67,16 @@ function AmountCluster({
       )}
       {...props}
     >
-      <span
+      <label
         data-slot="label"
+        htmlFor={inputId}
         className={cn("w-full shrink-0 break-words not-italic", labelFont[size])}
       >
         {label}
-      </span>
+      </label>
 
       <Input
+        id={inputId}
         size={size}
         appearance={appearance}
         disabled={disabled}

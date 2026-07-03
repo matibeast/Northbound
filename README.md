@@ -43,6 +43,8 @@ Tokens keep their semantic-to-primitive references intact, so the chain is inspe
 
 WCAG pairings are designed into the token decisions, not checked afterward. The brand anchor, `gold.500` on `gray.900`, lands at 13:1 contrast (AAA).
 
+Storybook's `addon-a11y` runs as a hard gate (`test: 'error'`) against every story via `npx vitest run`. See the [Accessibility doc page](./src/accessibility.mdx) for the full WCAG AA pass — what was fixed, what's recorded as a known gap, and why.
+
 ## Components
 
 Components are organized into four layers. Each layer can only depend on layers below it.

@@ -5,7 +5,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
+/* `inline` matters here: these values reference other CSS variables that only
+   resolve correctly once `.dark` is applied at runtime (see semantics.css).
+   A plain `@theme` block registers them as their own custom properties and
+   bakes a static initial value, which breaks runtime theme switching —
+   `inline` substitutes the var() reference directly into each utility class
+   instead. See src/accessibility.mdx for how this was found. */
+@theme inline {
   /* --- Backgrounds --- */
   --color-bg-neutral-subtlest:          var(--color-background-neutral-subtlest-default);
   --color-bg-neutral-subtlest-hovered:  var(--color-background-neutral-subtlest-hovered);
