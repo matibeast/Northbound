@@ -4,6 +4,8 @@ A concept investing app for people in Latin America who want to invest in US sto
 
 > **Concept project.** No real money flows, all data is sample data, and nothing here is financial advice. Designed and built independently by [Maty Sandoval](https://www.matysandoval.com) alongside Memorisely's AI Design Systems and AI Coding bootcamps.
 
+**[View the live Storybook →](https://www.chromatic.com/library?appId=6a470152b0f836d9404953f1)**
+
 ## The idea
 
 AI design and code tools are only as good as the system they consume. This repo is the proof of that pipeline: one token source feeding both Figma and production code, with components generated and scaled using Claude Code via Figma MCP.
@@ -90,6 +92,14 @@ Full-screen shells and section-level layout components assembled from Feature co
 - [x] HoldingsSection — Section header row (title + count) above a PersonalHoldings card
 - [x] ScreenScaffold — Full-screen shell (430 × 932) with AppBar pinned at the top and a content area below; provides background, padding, and overflow clipping
 
+## Screens
+
+Full products assembled from the Layout layer, each backed by a Figma frame referenced in a code comment for traceability.
+
+- [x] Portfolio Dashboard — Balance, 30-day price chart, and scrollable holdings list
+- [x] Asset Detail — Per-share price, price chart, two position summaries, and a place-order action
+- [x] Deposit & FX Conversion — Amount entry with MXN→USD conversion badge, preset chips, and a full movement breakdown
+
 ---
 
 ## Status
@@ -101,13 +111,27 @@ Full-screen shells and section-level layout components assembled from Feature co
 - [x] Composite components — Chip Group, Amount Cluster, Data Row, Asset Header, Section Header, Card, Holding Row
 - [x] Feature components — Movement Breakdown, Price Chart, Position Summary, Personal Holdings, Portfolio Balance
 - [x] Layout components — AppBar, BalanceSection, HoldingsSection, ScreenScaffold
-- [x] Storybook wired up with stories for all components
+- [x] Storybook wired up with stories for all components, plus a dedicated Design Tokens doc page
 - [x] 3 screens: Portfolio Dashboard, Asset Detail, Deposit & FX Conversion
+- [x] CI: Storybook auto-published to Chromatic on every push to `main`
 
+## Getting started
+
+Requires Node 20+.
+
+```bash
+npm install
+npm run dev             # app — localhost:5173
+npm run storybook       # component library — localhost:6006
+```
+
+Other scripts: `npm run build`, `npm run build-storybook`, `npm run lint`.
+
+Or skip local setup entirely and browse the [live Storybook](https://www.chromatic.com/library?appId=6a470152b0f836d9404953f1).
 
 ## Stack
 
-Figma · Token Studio · Claude Code · Cursor · React 19 · Vite · Tailwind CSS v4 · shadcn/ui · Storybook
+Figma · Token Studio · Claude Code · Cursor · React 19 · Vite · Tailwind CSS v4 · shadcn/ui · Storybook · Chromatic · Vitest · Playwright
 
 ## Author
 
