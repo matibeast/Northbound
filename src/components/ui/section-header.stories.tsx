@@ -17,7 +17,7 @@ const ALL_VARIANTS: SectionHeaderVariant[] = ["text", "button", "badge", "none"]
 
 const meta = {
   component: SectionHeader,
-  title: "UI/SectionHeader",
+  title: "Composite/SectionHeader",
   tags: ["autodocs"],
   args: {
     variant: "text",

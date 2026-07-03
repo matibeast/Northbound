@@ -3,7 +3,7 @@ import { PositionSummary } from "./position-summary"
 
 const meta = {
   component: PositionSummary,
-  title: "UI/PositionSummary",
+  title: "Feature/PositionSummary",
   tags: ["autodocs"],
   args: {
     marketValueLabel: "Market value",

@@ -4,7 +4,7 @@ import { Chip } from "./chip"
 
 const meta = {
   component: Chip,
-  title: "UI/Chip",
+  title: "Foundation/Chip",
   tags: ["autodocs"],
   args: {
     children: "Label",

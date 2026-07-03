@@ -8,7 +8,7 @@ const ALL_SPARKLINE_DIRECTIONS = ["left", "right"] as const
 
 const meta = {
   component: PriceChart,
-  title: "UI/PriceChart",
+  title: "Feature/PriceChart",
   tags: ["autodocs"],
   args: {
     title: "Past 30 days",

@@ -3,7 +3,7 @@ import { HoldingsSection } from "./holdings-section"
 
 const meta = {
   component: HoldingsSection,
-  title: "UI/HoldingsSection",
+  title: "Layout/HoldingsSection",
   tags: ["autodocs"],
   args: {
     title: "Your holdings",

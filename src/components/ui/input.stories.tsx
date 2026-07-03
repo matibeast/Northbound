@@ -3,7 +3,7 @@ import { Input } from './input'
 
 const meta = {
   component: Input,
-  title: 'UI/Input',
+  title: 'Foundation/Input',
   tags: ['autodocs'],
   argTypes: {
     size: {

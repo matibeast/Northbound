@@ -14,7 +14,7 @@ const defaultItems: ChipGroupItem[] = [
 
 const meta = {
   component: ChipGroup,
-  title: "UI/ChipGroup",
+  title: "Composite/ChipGroup",
   tags: ["autodocs"],
   args: {
     items: defaultItems,

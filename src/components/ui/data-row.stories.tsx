@@ -46,7 +46,7 @@ const ALL_VARIANTS: DataRowVariant[] = ["plain", "emphasized"]
 
 const meta = {
   component: DataRow,
-  title: "UI/DataRow",
+  title: "Composite/DataRow",
   tags: ["autodocs"],
   args: {
     appearance: "neutral",

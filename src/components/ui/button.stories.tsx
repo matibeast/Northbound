@@ -53,6 +53,7 @@ type StoryArgs = Omit<React.ComponentProps<typeof Button>, 'iconStart' | 'iconEn
 }
 
 const meta = {
+  title: 'Foundation/Button',
   component: Button,
   tags: ['autodocs'],
   args: {

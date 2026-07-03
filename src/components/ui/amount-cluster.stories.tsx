@@ -3,7 +3,7 @@ import { AmountCluster } from './amount-cluster'
 
 const meta = {
   component: AmountCluster,
-  title: 'UI/AmountCluster',
+  title: 'Composite/AmountCluster',
   tags: ['autodocs'],
   argTypes: {
     size: {

@@ -6,7 +6,7 @@ const ALL_SIZES: AssetHeaderSize[] = ["md", "sm"]
 
 const meta = {
   component: AssetHeader,
-  title: "UI/AssetHeader",
+  title: "Composite/AssetHeader",
   tags: ["autodocs"],
   args: {
     size: "md",
