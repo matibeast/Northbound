@@ -5,6 +5,13 @@ import { Badge } from "@/components/ui/badge"
 import { ChipGroup } from "@/components/ui/chip-group"
 import { MovementBreakdown } from "@/components/ui/movement-breakdown"
 import { Button } from "@/components/ui/button"
+import {
+  ArrowUpRight,
+  ArrowDownUp,
+  Percent,
+  BanknoteArrowDown,
+  ClockIcon,
+} from "@/components/ui/icon"
 
 // Figma screen: Deposit / Add Money (node 119:3582)
 // Composition: ScreenScaffold > AmountCluster + Badge + ChipGroup + MovementBreakdown + Button
@@ -27,19 +34,19 @@ function DepositScreen() {
           <AmountCluster
             className="w-full"
             size="lg"
-            label="How much do you want to add?"
+            label="Amount to add"
             prefix="$"
             suffix="MXN"
             defaultValue="5,000.00"
             appearance="filled"
-            helperText="From your account in Mexican pesos"
+            helperText="Paid in Mexican pesos from your bank account"
             showHelperText
           />
 
           <Badge
             variant="success"
             value="$287.79"
-            caption="will be received"
+            caption="in USD to invest"
             showIcon
           />
 
@@ -56,10 +63,26 @@ function DepositScreen() {
           />
         </div>
 
-        <MovementBreakdown className="w-full" />
+        <MovementBreakdown
+          className="w-full"
+          title="Deposit details"
+          items={[
+            { title: "You pay", value: "$5,000.00 MXN", icon: ArrowUpRight },
+            { title: "Exchange rate", value: "1 USD = 17.20 MXN", icon: ArrowDownUp },
+            { title: "Fee (1%)", value: "$2.91 USD", icon: Percent },
+            {
+              title: "You get",
+              value: "$287.79 USD",
+              icon: BanknoteArrowDown,
+              appearance: "positive",
+              variant: "emphasized",
+            },
+            { title: "Ready to invest", value: "Within 1 business day", icon: ClockIcon },
+          ]}
+        />
 
         <Button variant="primary" size="md" className="w-full">
-          Add $287.79 to your account
+          Add $287.79 USD
         </Button>
 
       </div>
